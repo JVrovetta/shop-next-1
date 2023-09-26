@@ -10,10 +10,10 @@ interface ApiResponse {
 const getStaticProps: GetStaticProps = async () => {
   const staticData = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/hello`)
     .then(res => res.json())
+
   return {
-    props: {
-      staticData
-    }
+    props: { staticData },
+    revalidate: 10
   }
 }
 
